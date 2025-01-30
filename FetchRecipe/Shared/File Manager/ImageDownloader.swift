@@ -26,6 +26,14 @@ class ImageDownloader {
         return try await getImage(for: recipeItem, isLarge: false)
     }
     
+    func cleanup() {
+       let directoryContents = try? FileManager.default.contentsOfDirectory(at: self.parentDirectory, includingPropertiesForKeys: nil)
+       
+       directoryContents?.forEach { url in
+           try? FileManager.default.removeItem(at: url)
+       }
+    }
+    
     
     // MARK: - Private
     
