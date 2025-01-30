@@ -33,13 +33,6 @@ final class ImageDownloaderTests: XCTestCase {
         super.tearDown()
     }
     
-    func testSomething() {
-        let i = 4
-        let j = 4
-        
-        XCTAssertEqual(i, j)
-    }
-    
     func testLargeImageCached() async throws {
         let url = self.sut.createImageUrl(for: self.mockRecipe.uuid, isLarge: true)
         let image = UIImage(systemName: "birthday.cake")!
